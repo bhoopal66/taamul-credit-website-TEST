@@ -1,0 +1,55 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const CTASection = () => {
+  const { t, isRTL } = useLanguage();
+
+  return (
+    <section className="py-12 md:py-24 gradient-hero relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <motion.div 
+          className="absolute top-0 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.12, 0.1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <AnimatedSection className="max-w-3xl mx-auto text-center">
+          <h2 className="text-display-sm md:text-display text-primary-foreground mb-6">
+            {t('ctaSection.heading')}
+          </h2>
+          <p className="text-xl text-primary-foreground/80 mb-10">
+            {t('ctaSection.description')}
+          </p>
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
+            <Button asChild variant="accent" size="xl">
+              <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {t('common.contactUs')}
+                <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
+              </Link>
+            </Button>
+            <Button asChild variant="heroOutline" size="xl">
+              <a href="tel:+971529015026" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <Phone className="h-5 w-5" />
+                {t('ctaSection.callNow')} +971 52 901 5026
+              </a>
+            </Button>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+};
+
+export default CTASection;

@@ -1,0 +1,39 @@
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import FloatingButtons from "@/components/layout/FloatingButtons";
+import SEO from "@/components/SEO";
+import HeroSection from "@/components/home/HeroSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import BusinessAccountsSection from "@/components/home/BusinessAccountsSection";
+import CalculatorSection from "@/components/home/CalculatorSection";
+import WhyChooseTaamulSection from "@/components/home/WhyChooseTaamulSection";
+import PartnersSection from "@/components/home/PartnersSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import CTASection from "@/components/home/CTASection";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen">
+      <SEO
+        title="Business Financing Solutions in UAE | Taamul Credit"
+        description="Taamul Credit Review Services connects UAE businesses with financing solutions including business loans, working capital, trade finance, and expert advisory."
+        keywords="business financing UAE, business loans Dubai, working capital, trade finance, SME loans, corporate financing"
+      />
+      <Header />
+      <main id="main-content">
+        <HeroSection />
+        <ServicesSection />
+        <BusinessAccountsSection />
+        <CalculatorSection />
+        <WhyChooseTaamulSection />
+        <PartnersSection />
+        <TestimonialsSection />
+        <CTASection />
+      </main>
+      <Footer />
+      <FloatingButtons />
+    </div>
+  );
+};
+
+export default Index;
